@@ -1,0 +1,25 @@
+{% extends 'layouts/base.html' %}
+{% block title %} Trang Chu {% endblock %}
+{% block body %}
+<!--<h1 class="center"> Chao Mung Den Voi Website Cua Chung Toi</h1>-->
+
+{% if  products %}
+<div class="row">
+    {% for p in products %}
+    <div class="col-md-3 col-xs-12 padding">
+        <div class="card" >
+            <img class="card-img-top img-fluid" src="{{ p.image }}" alt="{{ p.name }}">
+            <div class="card-body">
+                <h4 class="card-title">{{ p.name }}</h4>
+                <p class="card-text text-danger">{{ "{:,.0f}".format( p.price ) }} VNĐ</p>
+                <a href="#" class="btn btn-primary"> Đặt hàng</a>
+                <a href="#" class="btn btn-danger"> Chi Tiết</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="text-danger">Sản phẩm không tồn tại !!!</p>
+{% endif %}
+{% endblock %}
